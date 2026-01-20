@@ -241,7 +241,6 @@ async function generateMasked(type) {
     await new Promise(r => setTimeout(r, 50));
     await runGeneration(type);
 }
-
 // 核心修复：分批生成循环，增加强制GC暂停
 async function runGeneration(opType) {
     if (!imagesData.length) { showLoading(false); return alert('请添加图片'); }
@@ -371,7 +370,7 @@ async function drawAsync(ctx, imgs, rows, cols, w, h, gap, globalOffset, startNu
             img.onerror = () => { img.isBroken = true; resolve(); }; 
             img.src = imgs[i];
         });
-
+        
         // 绘制逻辑下半部分：绘制与内存释放
         try {
             if (img.isBroken || img.naturalWidth === 0) {
@@ -785,7 +784,9 @@ function showNotes() {
         content.classList.add('scale-100', 'opacity-100');
     }
 }
+
 function closeNotes() { document.getElementById('noteModal').style.display = 'none'; }
+
 function permanentCloseNotes() { 
     if(confirm('确定不再显示此悬浮球吗？\n(您可以通过清除浏览器缓存来恢复)')) { 
         localStorage.setItem('puzzle_hide_notes_v1', 'true');
@@ -804,6 +805,7 @@ function checkUpdateNotice() {
         }, 500);
     }
 }
+
 function closeUpdateModal() { document.getElementById('updateNoticeModal').style.display = 'none'; }
 function dontShowUpdateAgain() { localStorage.setItem(UPDATE_KEY, 'true'); closeUpdateModal(); }
 
@@ -822,7 +824,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }); 
 });
 
-// 浏览器权限修复逻辑
 function triggerBrowserPermission() {
     const a = document.createElement('a');
     const b = document.createElement('a');
