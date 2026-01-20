@@ -18,6 +18,7 @@
 </head>
 <body class="antialiased">
     <div id="dragOverlay"><div class="text-[#007AFF] font-bold text-2xl bg-white/90 px-6 py-3 rounded-xl shadow-lg">松手释放图片</div></div>
+    
     <header class="sticky top-0 z-50 bg-[#F2F2F7]/90 backdrop-blur-xl border-b border-gray-200/50 supports-[backdrop-filter]:bg-[#F2F2F7]/60">
         <div class="max-w-2xl mx-auto px-5 py-3 flex justify-between items-center h-[52px]">
             <h1 class="text-[22px] font-bold tracking-tight text-black">拼图排序<span class="text-xs font-normal text-white bg-black px-1.5 py-0.5 rounded ml-1">Ultimate</span></h1>
@@ -35,6 +36,7 @@
             <input type="file" id="stickerInput" accept="image/*" class="hidden" onchange="handleStickerFile(this.files)">
         </div>
     </header>
+
     <main class="max-w-2xl mx-auto px-4 pt-4 relative">
         <div id="progressToast" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100] transition-all duration-200 cubic-bezier(0.34, 1.56, 0.64, 1) -translate-y-[200%] opacity-0 pointer-events-none">
             <div class="bg-white/95 backdrop-blur-xl text-gray-900 rounded-full shadow-2xl flex items-center py-3 pl-6 pr-4 gap-3 border border-gray-200/50 min-w-[200px]">
@@ -48,7 +50,9 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
-        </div><div class="ios-card">
+        </div>
+
+        <div class="ios-card">
             <details class="group" open>
                 <summary class="flex justify-between items-center p-4 bg-white cursor-pointer select-none active:bg-gray-50 transition">
                     <span class="text-[13px] text-gray-500 uppercase font-medium pl-1">
@@ -73,7 +77,10 @@
                     </div>
                 </div>
             </details>
-        </div><div class="mb-2 pl-4 text-[13px] text-gray-500 uppercase font-medium">单元格与间距</div><div class="ios-card">
+        </div>
+
+        <div class="mb-2 pl-4 text-[13px] text-gray-500 uppercase font-medium">单元格与间距</div>
+        <div class="ios-card">
             <details class="group">
                 <summary class="flex items-center justify-between p-4 bg-white cursor-pointer select-none active:bg-gray-50 transition">
                     <div>
@@ -111,7 +118,9 @@
                     </div>
                 </div>
             </details>
-        </div><div class="mb-2 pl-4 text-[13px] text-gray-500 uppercase font-medium">序号标注</div>
+        </div>
+
+        <div class="mb-2 pl-4 text-[13px] text-gray-500 uppercase font-medium">序号标注</div>
         <div class="ios-card ios-divide">
             <div class="flex items-center justify-between p-4 bg-white">
                 <span class="text-[17px]">显示序号</span>
@@ -180,7 +189,8 @@
                     </div>
                 </div>
             </details>
-        </div><div id="unified-group-panel" class="ios-card mb-6">
+        </div>
+        <div id="unified-group-panel" class="ios-card mb-6">
              <details class="group">
                 <summary class="flex items-center justify-between p-4 bg-white cursor-pointer select-none active:bg-gray-50 transition">
                     <div>
@@ -474,12 +484,12 @@
         </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <div id="permissionFixBtn" style="position:fixed; top:70px; right:20px; z-index:999;">
+        <button onclick="triggerBrowserPermission()" style="background:#007AFF; color:white; padding:8px 12px; border-radius:20px; font-size:12px; font-weight:bold; box-shadow:0 2px 10px rgba(0,0,0,0.2);">
+            ⚠️ 点我开启批量下载权限
+        </button>
+    </div>
 
-<div id="permissionFixBtn" style="position:fixed; top:70px; right:20px; z-index:999;">
-    <button onclick="triggerBrowserPermission()" style="background:#007AFF; color:white; padding:8px 12px; border-radius:20px; font-size:12px; font-weight:bold; box-shadow:0 2px 10px rgba(0,0,0,0.2);">
-        ⚠️ 点我开启批量下载权限
-    </button>
-</div>
+    <script src="js/main.js"></script>
 </body>
 </html>
